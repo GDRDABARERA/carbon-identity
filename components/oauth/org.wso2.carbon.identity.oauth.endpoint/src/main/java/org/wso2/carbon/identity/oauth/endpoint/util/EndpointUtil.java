@@ -303,7 +303,9 @@ public class EndpointUtil {
                 }
             } else {
                 sessionDataCache.addToCache(new SessionDataCacheKey(sessionDataKeyConsent),entry);
-                queryString = URLEncoder.encode(entry.getQueryString(), "UTF-8");
+                if (StringUtils.isNotEmpty(entry.getQueryString())) {
+                    queryString = URLEncoder.encode(entry.getQueryString(),"UTF-8");
+                }
             }
 
 
